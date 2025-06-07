@@ -1,0 +1,82 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+
+.month-details-page {
+    font-family: 'Nunito', sans-serif;
+    background-color: v.$color-background-primary;
+    min-height: 100vh;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .back-button-container {
+        margin-bottom: 2rem;
+    }
+
+    .back-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: v.$color-card-green;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken(v.$color-card-green, 10%);
+        }
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: v.$color-heading;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .events-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .event-item {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: v.$color-card-green;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: v.$color-heading;
+        }
+    }
+
+    .no-events-message {
+        text-align: center;
+        font-size: 1.2rem;
+        color: v.$color-text-dark;
+        margin-top: 2rem;
+    }
+} 
