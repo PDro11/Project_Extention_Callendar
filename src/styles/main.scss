@@ -1,0 +1,14 @@
+@import './base';
+@import './variables';
+@import './mixins';
+@import './utilities';
+
+// Importações dos componentes
+@import '../components/Header/Header.scss';
+@import '../components/MonthCard/MonthCard.scss';
+@import '../components/Modal/Modal.scss';
+
+// Importações das páginas
+@import '../pages/Home/Home.scss';
+
+// Os estilos dos componentes serão importados aqui depois.

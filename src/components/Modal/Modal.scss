@@ -1,0 +1,106 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out; // Animação de entrada
+}
+
+.modal-content {
+    background-color: v.$color-card-green; // Cor do modal de detalhes
+    padding: v.$spacing-xl;
+    border-radius: 15px;
+    max-width: 700px;
+    width: 90%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: v.$color-text-light;
+    text-align: center;
+    animation: slideInFromTop 0.3s ease-out; // Animação de entrada do conteúdo
+}
+
+.modal-close {
+    position: absolute;
+    top: v.$spacing-md;
+    right: v.$spacing-md;
+    font-size: 2.5rem; // Aumentei o tamanho para ficar mais visível
+    color: v.$color-text-light;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: v.$spacing-sm;
+    line-height: 1;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: darken(v.$color-text-light, 15%); // Escurece mais no hover
+    }
+}
+
+.modal-header {
+    margin-bottom: v.$spacing-lg;
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: v.$spacing-sm;
+        @include m.tablet { font-size: 3rem; }
+    }
+    h3 {
+        font-size: 1.5rem;
+        @include m.tablet { font-size: 1.8rem; }
+    }
+}
+
+.modal-body {
+    margin-bottom: v.$spacing-xl;
+    text-align: left; // Alinha o texto das perguntas/respostas
+    .modal-question {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-top: v.$spacing-md;
+        margin-bottom: v.$spacing-sm;
+        color: v.$color-card-yellow; // Destaca a pergunta
+    }
+    p {
+        font-size: 1.1rem;
+        margin-bottom: v.$spacing-md;
+    }
+}
+
+.modal-action {
+    font-size: 1.2rem;
+    margin-top: v.$spacing-lg;
+
+    a {
+        background-color: v.$color-text-light;
+        color: v.$color-text-dark;
+        padding: v.$spacing-md v.$spacing-xl;
+        border-radius: 8px;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: darken(v.$color-text-light, 10%);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Animações
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+} 
