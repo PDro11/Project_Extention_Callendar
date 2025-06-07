@@ -1,6 +1,12 @@
 @use "../../styles/variables" as v;
 @use "../../styles/mixins" as m;
 
+a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
 .month-card {
     background-color: v.$color-card-green; // Cor padrão, será sobrescrita
     padding: v.$spacing-md;

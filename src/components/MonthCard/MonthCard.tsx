@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MonthCard.scss'; // Importa o SCSS do componente
 
 interface MonthCardProps {
@@ -11,11 +12,13 @@ interface MonthCardProps {
 
 const MonthCard: React.FC<MonthCardProps> = ({ monthName, iconSrc, description, monthClass, onClick }) => {
     return (
-        <div className={`month-card ${monthClass}`} onClick={onClick}>
-            <h3>{monthName}</h3>
-            <img src={iconSrc} alt={`Ícone ${monthName}`} />
-            {description && <span className="month-description">{description}</span>}
-        </div>
+        <Link to={`/${monthName.toLowerCase()}`}>
+            <div className={`month-card ${monthClass}`}>
+                <h3>{monthName}</h3>
+                <img src={iconSrc} alt={`Ícone ${monthName}`} />
+                {description && <span className="month-description">{description}</span>}
+            </div>
+        </Link>
     );
 };
 
