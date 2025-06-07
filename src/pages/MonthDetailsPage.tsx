@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import type { Event } from '../data/eventsData';
 import { eventsData } from '../data/eventsData';
 import Modal from '../components/Modal/Modal';
 import Header from '../components/Header/Header';
 import './MonthDetailsPage.scss';
-
-// Definição local da interface Event
-interface Event {
-    id: string;
-    month: string;
-    day: number;
-    title: string;
-    description: string;
-    details: string;
-    whatIs?: string;
-    whyIsImportant?: string;
-    moreInfoLink?: string;
-}
 
 const MonthDetailsPage: React.FC = () => {
     // Estados para controlar o modal
@@ -66,7 +54,7 @@ const MonthDetailsPage: React.FC = () => {
                             <div 
                                 key={event.id}
                                 className="event-item"
-                                onClick={() => handleOpenModal(event as Event)}
+                                onClick={() => handleOpenModal(event)}
                             >
                                 <div className="event-date">
                                     {event.day.toString().padStart(2, '0')}/{
