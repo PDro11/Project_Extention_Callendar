@@ -1,0 +1,58 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+.month-card {
+    background-color: v.$color-card-green; // Cor padrão, será sobrescrita
+    padding: v.$spacing-md;
+    border-radius: 15px;
+    text-align: center;
+    color: v.$color-text-light;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; // Centraliza verticalmente o conteúdo
+    min-height: 180px; // Altura mínima para os cards
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+        font-size: 1.8rem;
+        margin-bottom: v.$spacing-sm;
+    }
+
+    img {
+        width: 100px; // Ajuste o tamanho dos ícones dos meses
+        height: 100px;
+        object-fit: contain;
+        margin-bottom: v.$spacing-sm;
+    }
+
+    .month-description {
+        font-size: 1rem;
+        margin-top: auto; // Empurra para baixo se precisar
+    }
+
+    // Sobrescrições de cor por mês (usando as variáveis)
+    &.month-january { background-color: v.$color-card-purple; }
+    &.month-february { background-color: v.$color-card-pink; }
+    &.month-march { background-color: v.$color-card-red; }
+    &.month-april { background-color: v.$color-card-gray; }
+    &.month-june { background-color: v.$color-card-blue; }
+    &.month-july { background-color: v.$color-card-light-green; }
+    &.month-august { background-color: v.$color-card-brown; }
+    &.month-september { background-color: v.$color-card-green; }
+    &.month-october { background-color: v.$color-card-orange; }
+    &.month-november { background-color: v.$color-card-orange; }
+    &.month-december { background-color: v.$color-card-blue; }
+} 

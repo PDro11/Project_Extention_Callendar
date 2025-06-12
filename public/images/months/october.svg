@@ -1,0 +1,22 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#ffebee" />
+  
+  <!-- Símbolo de criança (Dia das Crianças) -->
+  <circle cx="70" cy="60" r="15" fill="#F44336" /> <!-- Cabeça -->
+  <rect x="60" y="75" width="20" height="30" rx="5" fill="#F44336" /> <!-- Corpo -->
+  <line x1="60" y1="85" x2="45" y2="95" stroke="#F44336" stroke-width="5" /> <!-- Braço esquerdo -->
+  <line x1="80" y1="85" x2="95" y2="95" stroke="#F44336" stroke-width="5" /> <!-- Braço direito -->
+  <line x1="65" y1="105" x2="55" y2="125" stroke="#F44336" stroke-width="5" /> <!-- Perna esquerda -->
+  <line x1="75" y1="105" x2="85" y2="125" stroke="#F44336" stroke-width="5" /> <!-- Perna direita -->
+  
+  <!-- Símbolo de professor (Dia dos Professores) -->
+  <circle cx="130" cy="60" r="15" fill="#9C27B0" /> <!-- Cabeça -->
+  <rect x="120" y="75" width="20" height="30" rx="5" fill="#9C27B0" /> <!-- Corpo -->
+  <rect x="110" y="105" width="40" height="20" rx="5" fill="#E1BEE7" /> <!-- Livro/quadro -->
+  <line x1="120" y1="85" x2="110" y2="80" stroke="#9C27B0" stroke-width="5" /> <!-- Braço esquerdo -->
+  <line x1="140" y1="85" x2="150" y2="80" stroke="#9C27B0" stroke-width="5" /> <!-- Braço direito -->
+  
+  <!-- Texto do mês -->
+  <text x="100" y="150" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#F44336">OUTUBRO</text>
+  <text x="100" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">Mês das Crianças e dos Professores</text>
+</svg> 

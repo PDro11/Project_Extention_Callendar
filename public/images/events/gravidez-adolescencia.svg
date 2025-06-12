@@ -1,0 +1,22 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#e8eaf6" />
+  
+  <!-- Símbolo de informação/educação -->
+  <circle cx="150" cy="80" r="50" fill="#C5CAE9" stroke="#3F51B5" stroke-width="2" />
+  <text x="150" y="85" font-family="Arial" font-size="70" font-weight="bold" text-anchor="middle" fill="#3F51B5">i</text>
+  
+  <!-- Símbolo de educação sexual e prevenção -->
+  <circle cx="90" cy="130" r="15" fill="#F48FB1" /> <!-- Símbolo feminino -->
+  <line x1="90" y1="145" x2="90" y2="165" stroke="#F48FB1" stroke-width="4" />
+  <line x1="80" y1="155" x2="100" y2="155" stroke="#F48FB1" stroke-width="4" />
+  
+  <circle cx="210" cy="130" r="15" fill="#90CAF9" /> <!-- Símbolo masculino -->
+  <line x1="210" y1="145" x2="210" y2="165" stroke="#90CAF9" stroke-width="4" />
+  <line x1="220" y1="130" x2="235" y2="115" stroke="#90CAF9" stroke-width="4" />
+  <circle cx="235" cy="115" r="3" fill="#90CAF9" />
+  
+  <!-- Título -->
+  <text x="150" y="25" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#3F51B5">Semana Nacional de Prevenção</text>
+  <text x="150" y="45" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#3F51B5">da Gravidez na Adolescência</text>
+  <text x="150" y="190" font-family="Arial" font-size="14" text-anchor="middle" fill="#3F51B5">1ª Semana de Fevereiro</text>
+</svg> 

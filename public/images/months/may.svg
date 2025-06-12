@@ -1,0 +1,16 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#fffde7" />
+  
+  <!-- Símbolo de profissionais (assistente social) -->
+  <circle cx="100" cy="70" r="25" fill="#4f4f4f" />
+  <rect x="85" y="95" width="30" height="40" fill="#4f4f4f" />
+  
+  <!-- Braços abertos (símbolo de acolhimento) -->
+  <line x1="85" y1="105" x2="55" y2="90" stroke="#4f4f4f" stroke-width="10" />
+  <line x1="115" y1="105" x2="145" y2="90" stroke="#4f4f4f" stroke-width="10" />
+  
+  <!-- Texto do mês -->
+  <text x="100" y="150" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2e7d32">MAIO</text>
+  <text x="100" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">Mês dos Profissionais</text>
+  <text x="100" y="185" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">e da Família</text>
+</svg> 

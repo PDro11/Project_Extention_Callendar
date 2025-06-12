@@ -1,0 +1,15 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#f3e5f5" />
+  
+  <!-- Símbolo feminino (tema da mulher) -->
+  <circle cx="100" cy="70" r="25" fill="#F48FB1" stroke="#9C27B0" stroke-width="2" />
+  <line x1="100" y1="95" x2="100" y2="125" stroke="#9C27B0" stroke-width="4" />
+  <line x1="80" y1="110" x2="120" y2="110" stroke="#9C27B0" stroke-width="4" />
+  
+  <!-- Símbolo de gota d'água (tema da água) -->
+  <path d="M70,60 Q70,30 50,60 Q30,90 50,110 Q70,130 90,110 Q110,90 70,60 Z" fill="#81D4FA" stroke="#0288D1" stroke-width="2" />
+  
+  <!-- Texto do mês -->
+  <text x="100" y="150" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#9C27B0">MARÇO</text>
+  <text x="100" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">Mês da Mulher e da Água</text>
+</svg> 

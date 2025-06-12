@@ -1,0 +1,233 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+// Cores
+$color-background: #e8f5e9; // Verde claro
+$color-text-primary: #2e7d32; // Verde escuro
+$color-text-secondary: #4f4f4f; // Cinza escuro
+$color-accent: #8bc34a; // Verde limão
+$color-light: #ffffff;
+$color-shadow: rgba(0, 0, 0, 0.08);
+
+// Estilos da página
+.home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $color-background;
+    padding-bottom: 4rem;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+.main-content {
+    flex-grow: 1; // Permite que o conteúdo principal ocupe o espaço restante
+    padding: v.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xxl; // Espaçamento entre as seções
+    background-color: v.$color-background-primary;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.current-month-section {
+    background-color: v.$color-card-green; // Fundo verde grande
+    padding: v.$spacing-xl;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+    color: v.$color-text-light;
+    text-align: center;
+    margin: 2rem 0;
+
+    .month-title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: v.$spacing-md;
+        @include m.tablet { font-size: 4rem; }
+    }
+    .event-details-container {
+        display: flex;
+        flex-direction: column;
+        gap: v.$spacing-md;
+        width: 100%;
+        max-width: 600px; // Limita a largura dos eventos
+    }
+    .event-item {
+        background-color: v.$color-text-light;
+        color: v.$color-text-dark;
+        padding: v.$spacing-md;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: v.$spacing-sm;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        position: relative; // Para o tooltip de hover
+
+        &:hover {
+            background-color: darken(v.$color-text-light, 5%);
+            transform: translateY(-3px);
+        }
+
+        .event-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .event-date {
+            font-size: 1.1rem;
+            white-space: nowrap;
+            text-align: right;
+        }
+        .event-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            flex-shrink: 0; // Impede que o ícone diminua
+        }
+        .event-subtitle {
+            font-size: 0.9rem;
+            margin-left: v.$spacing-sm; // Espaçamento após o ícone
+            text-align: left; // Alinha o subtítulo à esquerda
+        }
+
+        // Estilos para o hover "Quer saber mais?" (tooltip)
+        &::after {
+            content: "Quer saber mais?";
+            position: absolute;
+            top: -35px; /* Acima do elemento */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.months-grid-section {
+    // Estilos para a seção que contém a grade de meses (Junho a Dezembro)
+    // Você pode adicionar um título para esta seção se desejar no futuro.
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Ajuste minmax conforme necessário
+    gap: v.$spacing-md;
+    justify-content: center; // Centraliza a grade
+    align-items: stretch;
+
+    @include m.tablet {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: v.$spacing-lg;
+    }
+}
+
+.previous-dates-section {
+    .section-title {
+        text-align: center;
+        font-size: 2rem;
+        color: v.$color-heading;
+        background-color: v.$color-card-yellow;
+        padding: v.$spacing-md;
+        border-radius: 10px;
+        margin-bottom: v.$spacing-lg;
+        @include m.tablet { font-size: 2.5rem; }
+    }
+    .months-grid {
+        // Reutiliza o estilo de grid
+    }
+}
+
+// Classes de cor para os meses (mais cores podem ser adicionadas)
+.month-january {
+    background-color: #e3f2fd; // Azul claro
+}
+
+.month-february {
+    background-color: #e8eaf6; // Índigo claro
+}
+
+.month-march {
+    background-color: #f3e5f5; // Roxo claro
+}
+
+.month-april {
+    background-color: #f1f8e9; // Verde claro
+}
+
+.month-may {
+    background-color: #fffde7; // Amarelo claro
+}
+
+.month-june {
+    background-color: #e0f7fa; // Ciano claro
+}
+
+.month-july {
+    background-color: #fce4ec; // Rosa claro
+}
+
+.month-august {
+    background-color: #fff3e0; // Âmbar claro
+}
+
+.month-september {
+    background-color: #e8f5e9; // Verde claro
+}
+
+.month-october {
+    background-color: #ffebee; // Vermelho claro
+}
+
+.month-november {
+    background-color: #efebe9; // Marrom claro
+}
+
+.month-december {
+    background-color: #f5f5f5; // Cinza claro
+}
+
+// Responsividade
+@media (max-width: 992px) {
+    .main-content {
+        .months-grid-section,
+        .previous-dates-section {
+            .months-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        .months-grid-section,
+        .previous-dates-section {
+            .months-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+    }
+} 

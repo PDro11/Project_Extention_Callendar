@@ -1,0 +1,52 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.main-header {
+    background-color: v.$color-card-green;
+    padding: v.$spacing-lg v.$spacing-md;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; // Garante que o cabeçalho ocupe toda a largura
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-md;
+    flex-direction: column; // Padrão para mobile (empilha)
+
+    @include m.tablet { // Para tablets e desktops (lado a lado)
+        flex-direction: row;
+    }
+}
+
+.logo-secretaria {
+    width: 80px; // Ajuste conforme a imagem real
+    height: auto;
+}
+
+.header-text {
+    h1 {
+        font-size: 2.5rem;
+        color: v.$color-text-light;
+        margin-bottom: v.$spacing-xs; // Reduz a margem padrão do h1
+        @include m.tablet {
+            font-size: 3rem;
+        }
+    }
+    p {
+        font-size: 1rem;
+        color: v.$color-text-light;
+        margin-bottom: v.$spacing-xs; // Reduz a margem padrão do p
+        &.tagline {
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    }
+} 

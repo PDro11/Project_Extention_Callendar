@@ -1,0 +1,29 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#fce4ec" />
+  
+  <!-- Símbolos de férias -->
+  <circle cx="150" cy="70" r="20" fill="#FFEB3B" /> <!-- Sol -->
+  <line x1="150" y1="40" x2="150" y2="45" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="150" y1="95" x2="150" y2="100" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="120" y1="70" x2="125" y2="70" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="175" y1="70" x2="180" y2="70" stroke="#FFEB3B" stroke-width="4" />
+  
+  <line x1="135" y1="55" x2="140" y2="60" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="135" y1="85" x2="140" y2="80" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="160" y1="55" x2="165" y2="50" stroke="#FFEB3B" stroke-width="4" />
+  <line x1="160" y1="85" x2="165" y2="90" stroke="#FFEB3B" stroke-width="4" />
+  
+  <!-- Ícone de amizade (duas pessoas) -->
+  <circle cx="60" cy="60" r="10" fill="#F8BBD0" />
+  <circle cx="80" cy="60" r="10" fill="#F8BBD0" />
+  <rect x="50" y="70" width="20" height="30" rx="5" fill="#F8BBD0" /> <!-- corpo pessoa 1 -->
+  <rect x="70" y="70" width="20" height="30" rx="5" fill="#F8BBD0" /> <!-- corpo pessoa 2 -->
+  <line x1="60" y1="100" x2="50" y2="120" stroke="#F8BBD0" stroke-width="5" /> <!-- perna pessoa 1 -->
+  <line x1="60" y1="100" x2="70" y2="120" stroke="#F8BBD0" stroke-width="5" /> <!-- perna pessoa 1 -->
+  <line x1="80" y1="100" x2="70" y2="120" stroke="#F8BBD0" stroke-width="5" /> <!-- perna pessoa 2 -->
+  <line x1="80" y1="100" x2="90" y2="120" stroke="#F8BBD0" stroke-width="5" /> <!-- perna pessoa 2 -->
+  
+  <!-- Texto do mês -->
+  <text x="100" y="150" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#E91E63">JULHO</text>
+  <text x="100" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">Mês das Férias e da Amizade</text>
+</svg> 

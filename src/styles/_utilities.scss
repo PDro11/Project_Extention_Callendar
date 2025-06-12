@@ -1,0 +1,14 @@
+@use "variables" as v;
+
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-sm { gap: v.$spacing-sm; }
+.gap-md { gap: v.$spacing-md; }
+.gap-lg { gap: v.$spacing-lg; }
+.p-md { padding: v.$spacing-md; }
+.p-lg { padding: v.$spacing-lg; }
+.m-auto { margin: auto; }
+.w-full { width: 100%; }

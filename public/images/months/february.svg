@@ -1,0 +1,20 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="90" fill="#e8eaf6" />
+  
+  <!-- Símbolo de educação sexual (tema prevenção gravidez na adolescência) -->
+  <circle cx="100" cy="70" r="30" fill="#C5CAE9" stroke="#3F51B5" stroke-width="2" />
+  <text x="100" y="75" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#3F51B5">i</text>
+
+  <!-- Símbolos masculino e feminino -->
+  <circle cx="70" cy="110" r="10" fill="#F48FB1" /> <!-- Feminino -->
+  <line x1="70" y1="120" x2="70" y2="135" stroke="#F48FB1" stroke-width="3" />
+  <line x1="65" y1="125" x2="75" y2="125" stroke="#F48FB1" stroke-width="3" />
+
+  <circle cx="130" cy="110" r="10" fill="#90CAF9" /> <!-- Masculino -->
+  <line x1="130" y1="120" x2="130" y2="135" stroke="#90CAF9" stroke-width="3" />
+  <line x1="135" y1="110" x2="145" y2="100" stroke="#90CAF9" stroke-width="3" />
+  
+  <!-- Texto do mês -->
+  <text x="100" y="160" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#3F51B5">FEVEREIRO</text>
+  <text x="100" y="180" font-family="Arial" font-size="12" text-anchor="middle" fill="#4f4f4f">Mês da Educação Inclusiva</text>
+</svg> 
