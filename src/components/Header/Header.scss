@@ -3,7 +3,7 @@
 
 .main-header {
     background-color: v.$color-card-green;
-    padding: v.$spacing-lg v.$spacing-md;
+    padding: v.$spacing-md;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,7 @@
     top: 0;
     z-index: 1000;
     width: 100%; // Garante que o cabeçalho ocupe toda a largura
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra sutil para destacar o cabeçalho
 }
 
 .header-content {
@@ -20,33 +21,64 @@
     align-items: center;
     gap: v.$spacing-md;
     flex-direction: column; // Padrão para mobile (empilha)
+    width: 100%;
+    max-width: 1200px; // Limita a largura máxima em telas grandes
 
     @include m.tablet { // Para tablets e desktops (lado a lado)
         flex-direction: row;
+        padding: v.$spacing-sm v.$spacing-md;
     }
 }
 
 .logo-secretaria {
-    width: 80px; // Ajuste conforme a imagem real
+    width: 100px; // Tamanho menor para mobile
     height: auto;
+    margin: v.$spacing-sm 0;
+    
+    @include m.tablet {
+        width: 130px; // Tamanho médio para tablet
+    }
+    
+    @include m.desktop {
+        width: 150px; // Tamanho maior para desktop
+    }
 }
 
 .header-text {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); // Sombra no texto para melhorar legibilidade
+    
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem; // Tamanho menor para mobile
         color: v.$color-text-light;
-        margin-bottom: v.$spacing-xs; // Reduz a margem padrão do h1
+        margin-bottom: v.$spacing-xs;
+        font-weight: 700; // Texto mais forte
+        letter-spacing: 0.5px; // Espaçamento entre letras
+        
         @include m.tablet {
-            font-size: 3rem;
+            font-size: 2.5rem; // Tamanho médio para tablet
+        }
+        
+        @include m.desktop {
+            font-size: 3rem; // Tamanho maior para desktop
         }
     }
+    
     p {
-        font-size: 1rem;
+        font-size: 0.9rem; // Tamanho menor para mobile
         color: v.$color-text-light;
-        margin-bottom: v.$spacing-xs; // Reduz a margem padrão do p
+        margin-bottom: v.$spacing-xs;
+        
+        @include m.tablet {
+            font-size: 1rem; // Tamanho normal para tablet e desktop
+        }
+        
         &.tagline {
             font-style: italic;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            
+            @include m.tablet {
+                font-size: 0.9rem;
+            }
         }
     }
 } 
