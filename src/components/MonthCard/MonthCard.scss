@@ -31,11 +31,35 @@ a {
         margin-bottom: v.$spacing-sm;
     }
 
-    img {
-        width: 100px; // Ajuste o tamanho dos ícones dos meses
-        height: 100px;
-        object-fit: contain;
+    .image-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
         margin-bottom: v.$spacing-sm;
+        
+        // Círculo amarelo
+        &::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #FFD700; // Amarelo forte
+            z-index: 1;
+        }
+        
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            z-index: 2;
+            background-color: #fff; // Fundo branco para a imagem
+            padding: 10px;
+        }
     }
 
     .month-description {
@@ -48,6 +72,7 @@ a {
     &.month-february { background-color: v.$color-card-pink; }
     &.month-march { background-color: v.$color-card-red; }
     &.month-april { background-color: v.$color-card-gray; }
+    &.month-may { background-color: v.$color-card-yellow; } // Adicionando maio que estava faltando
     &.month-june { background-color: v.$color-card-blue; }
     &.month-july { background-color: v.$color-card-light-green; }
     &.month-august { background-color: v.$color-card-brown; }

@@ -21,11 +21,13 @@ const MonthCard: React.FC<MonthCardProps> = ({ monthName, iconSrc, description, 
         <Link to={`/${monthName.toLowerCase()}`}>
             <div className={`month-card ${monthClass}`} onClick={onClick}>
                 <h3>{monthName}</h3>
-                <img 
-                    src={iconSrc} 
-                    alt={`Ícone ${monthName}`} 
-                    onError={handleImageError}
-                />
+                <div className="image-container">
+                    <img 
+                        src={iconSrc} 
+                        alt={`Ícone ${monthName}`} 
+                        onError={handleImageError}
+                    />
+                </div>
                 {description && <span className="month-description">{description}</span>}
             </div>
         </Link>
