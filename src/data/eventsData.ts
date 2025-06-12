@@ -21,7 +21,7 @@ export const eventsData: Event[] = [
         details: '29 / Janeiro',
         whatIs: 'Criado em 2004, após o lançamento da campanha "Travesti e Respeito" no Congresso Nacional, o dia visa promover a conscientização sobre os direitos e a dignidade das pessoas trans e travestis no Brasil.',
         whyIsImportant: 'A data destaca a luta contra a transfobia e a importância da inclusão e respeito à diversidade de identidade de gênero.',
-        moreInfoLink: 'https://www.gov.br/mdh/pt-br/assuntos/noticias/2024/janeiro/no-dia-da-visibilidade-trans-ministro-silvio-almeida-reforca-o-compromisso-com-a-populacao-lgbtqia'
+        moreInfoLink: 'https://www.gov.br/turismo/pt-br/assuntos/noticias/dia-nacional-da-visibilidade-trans-ministerio-do-turismo-destaca-material-de-apoio-para-um-turismo-mais-inclusivo'
     },
 
     // Fevereiro
@@ -34,7 +34,7 @@ export const eventsData: Event[] = [
         details: '1ª Semana / Fevereiro',
         whatIs: 'Instituída pela Lei nº 13.798/2019, a semana tem como objetivo disseminar informações sobre medidas preventivas e educativas para reduzir a incidência da gravidez na adolescência.',
         whyIsImportant: 'A campanha busca sensibilizar adolescentes, famílias e profissionais de saúde sobre os riscos e consequências da gravidez precoce.',
-        moreInfoLink: 'https://www.gov.br/saude/pt-br/assuntos/noticias/2024/fevereiro/ministerio-da-saude-reforca-a-importancia-da-prevencao-da-gravidez-na-adolescencia'
+        moreInfoLink: 'https://bvsms.saude.gov.br/01-a-08-02-semana-nacional-de-prevencao-da-gravidez-na-adolescencia/'
     },
 
     // Março
@@ -47,7 +47,7 @@ export const eventsData: Event[] = [
         details: '08 / Março',
         whatIs: 'Celebrado mundialmente, o Dia Internacional da Mulher destaca as conquistas sociais, políticas e econômicas das mulheres, além de reforçar a luta por igualdade de gênero.',
         whyIsImportant: 'Em Bauru, a Semana Municipal da Mulher promove eventos e atividades voltadas ao empoderamento feminino e à conscientização sobre os direitos das mulheres.',
-        moreInfoLink: 'https://www2.bauru.sp.gov.br/sebes/conselho_mulher.aspx'
+        moreInfoLink: 'https://www2.bauru.sp.gov.br/materia.aspx?n=45837'
     },
 
     // Abril
@@ -73,7 +73,7 @@ export const eventsData: Event[] = [
         details: '15 / Maio',
         whatIs: 'Comemorado em 15 de maio, o Dia do Assistente Social celebra os profissionais que atuam na promoção do bem-estar social, lutando pelos direitos humanos e por melhores condições de vida para grupos sociais vulneráveis.',
         whyIsImportant: 'A profissão é regulamentada pela Lei Federal nº 8.662/1993 e desempenha um papel fundamental na elaboração e execução de políticas sociais que visam à inclusão e à justiça social.',
-        moreInfoLink: 'https://www.defensoriapublica.pr.def.br/Noticia/Defensoria-Parana-homenageia-assistentes-sociais-pelo-seu-dia-15-de-maio'
+        moreInfoLink: 'http://www.cfess.org.br/'
     },
     {
         id: 'combate-abuso',
@@ -84,7 +84,7 @@ export const eventsData: Event[] = [
         details: '18 / Maio',
         whatIs: 'Instituído pela Lei Federal nº 9.970/2000, o dia homenageia a memória de Araceli Crespo, vítima de violência sexual e assassinato em 1973.',
         whyIsImportant: 'A data busca mobilizar a sociedade para a proteção dos direitos das crianças e adolescentes.',
-        moreInfoLink: 'https://www.gov.br/mdh/pt-br/facabonito'
+        moreInfoLink: 'https://www.planalto.gov.br/ccivil_03/leis/l9970.htm'
     },
 
     // Junho
@@ -97,7 +97,7 @@ export const eventsData: Event[] = [
         details: '12 / Junho',
         whatIs: 'A data destaca a importância de combater o trabalho infantil, que compromete o desenvolvimento físico, emocional e educacional das crianças.',
         whyIsImportant: 'Em Bauru, são realizadas atividades educativas para sensibilizar a população sobre os prejuízos dessa prática.',
-        moreInfoLink: 'https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/combate-ao-trabalho-infantil'
+        moreInfoLink: 'https://www2.bauru.sp.gov.br/materia.aspx?n=43052'
     },
     {
         id: 'violencia-idoso',
@@ -108,7 +108,7 @@ export const eventsData: Event[] = [
         details: '15 / Junho',
         whatIs: 'Estabelecido pela ONU, o dia visa chamar a atenção para a existência de abusos físicos, emocionais e financeiros contra idosos.',
         whyIsImportant: 'Promove ações de prevenção e combate a essas violações contra as pessoas idosas.',
-        moreInfoLink: 'https://www.tjdft.jus.br/informacoes/cidadania/violencia-contra-a-pessoa-idosa'
+        moreInfoLink: 'https://www.tjdft.jus.br/acessibilidade/publicacoes/sementes-da-equidade/15-de-junho-e-o-dia-mundial-de-conscientizacao-sobre-a-violencia-contra-a-pessoa-idosa'
     },
 
     // Julho
@@ -134,7 +134,7 @@ export const eventsData: Event[] = [
         details: '01 / Agosto',
         whatIs: 'A cidade de Bauru celebra seu aniversário com eventos culturais, shows e atividades comunitárias.',
         whyIsImportant: 'Fortalece o sentimento de pertencimento e valorização da história local.',
-        moreInfoLink: 'https://www.bauru.sp.gov.br'
+        moreInfoLink: 'https://www.bauru.sp.gov.br/'
     },
     {
         id: 'situacao-rua',
@@ -145,7 +145,7 @@ export const eventsData: Event[] = [
         details: '19 / Agosto',
         whatIs: 'A data rememora o "Massacre da Sé" de 2004, quando pessoas em situação de rua foram brutalmente atacadas em São Paulo.',
         whyIsImportant: 'Visa dar visibilidade a essa população e promover políticas públicas de inclusão.',
-        moreInfoLink: 'https://www.gov.br/mdh/pt-br/assuntos/noticias/2023/agosto/artigo-a-importancia-do-dia-nacional-de-luta-da-populacao-em-situacao-de-rua'
+        moreInfoLink: 'https://www.gov.br/saude/pt-br/assuntos/noticias/2024/agosto/dia-nacional-de-luta-da-populacao-em-situacao-de-rua-e-perspectivas-sao-debatidos-por-comite'
     },
     {
         id: 'combate-preconceito',
@@ -156,7 +156,7 @@ export const eventsData: Event[] = [
         details: '20 / Agosto',
         whatIs: 'Em Bauru, a semana é dedicada a ações educativas e culturais.',
         whyIsImportant: 'Promove a igualdade e combate todas as formas de discriminação.',
-        moreInfoLink: 'https://www.bauru.sp.gov.br/sebes/direitoshumanos.aspx'
+        moreInfoLink: 'https://www2.bauru.sp.gov.br/materia.aspx?n=39059'
     },
     {
         id: 'psicologo',
@@ -167,7 +167,7 @@ export const eventsData: Event[] = [
         details: '27 / Agosto',
         whatIs: 'O Dia do Psicólogo é celebrado em 27 de agosto, data que marca a regulamentação da profissão no Brasil pela Lei nº 4.119, de 1962. A Psicologia é uma ciência que estuda os processos mentais e o comportamento humano.',
         whyIsImportant: 'Os psicólogos atuam em diversas áreas, como saúde, educação, trabalho e justiça, contribuindo para o desenvolvimento individual e coletivo.',
-        moreInfoLink: 'https://www.defensoriapublica.pr.def.br/Noticia/No-Dia-do-Psicologo-Defensoria-do-Parana-destaca-papel-da-categoria-no-acesso-justica'
+        moreInfoLink: 'https://site.cfp.org.br/'
     },
 
     // Setembro
@@ -180,7 +180,7 @@ export const eventsData: Event[] = [
         details: '21 / Setembro',
         whatIs: 'Instituído pela Lei nº 11.133/2005, o Dia Nacional de Luta da Pessoa com Deficiência é celebrado em 21 de setembro com o objetivo de conscientizar a sociedade sobre a importância da inclusão e do respeito aos direitos das pessoas com deficiência.',
         whyIsImportant: 'A data simboliza o início da primavera, representando o nascimento das reivindicações por igualdade e participação plena na sociedade.',
-        moreInfoLink: 'https://www.gov.br/mdh/pt-br/navegue-por-temas/pessoa-com-deficiencia'
+        moreInfoLink: 'https://legislacao.presidencia.gov.br/ficha/?/legisla/legislacao.nsf/Viw_Identificacao/lei%2011.133-2005&OpenDocument'
     },
     {
         id: 'idoso',
@@ -191,7 +191,7 @@ export const eventsData: Event[] = [
         details: '27 / Setembro',
         whatIs: 'A data celebra os direitos e a valorização das pessoas idosas.',
         whyIsImportant: 'Promove atividades que incentivam o envelhecimento ativo e saudável.',
-        moreInfoLink: 'https://www.planalto.gov.br/ccivil_03/leis/l10741.htm'
+        moreInfoLink: 'https://www.planalto.gov.br/ccivil_03/leis/2003/l10.741.htm'
     },
 
     // Outubro
@@ -215,7 +215,7 @@ export const eventsData: Event[] = [
         details: '16 / Outubro',
         whatIs: 'A data chama a atenção para questões relacionadas à alimentação saudável, segurança alimentar e combate à fome.',
         whyIsImportant: 'Em Bauru, são realizadas palestras e oficinas sobre o tema.',
-        moreInfoLink: 'https://www.gov.br/mds/pt-br/acoes-e-programas/seguranca-alimentar-e-nutricional'
+        moreInfoLink: 'https://www2.bauru.sp.gov.br/materia.aspx?n=45292'
     },
 
     // Novembro
@@ -239,7 +239,7 @@ export const eventsData: Event[] = [
         details: '25 / Novembro',
         whatIs: 'A data foi escolhida em memória às irmãs Mirabal, assassinadas na República Dominicana.',
         whyIsImportant: 'Visa alertar para a violência de gênero e promover ações de combate a esse tipo de violência.',
-        moreInfoLink: 'https://www.onumulheres.org.br/campanhas/unanse/'
+        moreInfoLink: 'https://www.onumulheres.org.br/noticias/naotemdesculpa-una-se-2024/'
     },
 
     // Dezembro
@@ -252,7 +252,7 @@ export const eventsData: Event[] = [
         details: '10 / Dezembro',
         whatIs: 'Celebra a data de adoção da Declaração Universal dos Direitos Humanos pela ONU em 1948.',
         whyIsImportant: 'Promove a reflexão sobre os direitos fundamentais e inalienáveis de todos os seres humanos.',
-        moreInfoLink: 'https://www.un.org/pt/about-us/universal-declaration-of-human-rights'
+        moreInfoLink: 'https://www.gov.br/mdh/pt-br/navegue-por-temas/dudh70/a-declaracao'
     },
     {
         id: 'combate-pobreza',
@@ -263,6 +263,6 @@ export const eventsData: Event[] = [
         details: '14 / Dezembro',
         whatIs: 'A data busca chamar a atenção para as desigualdades sociais e a necessidade de políticas públicas efetivas para o combate à pobreza.',
         whyIsImportant: 'Promove a reflexão sobre a importância de garantir condições dignas de vida para toda a população.',
-        moreInfoLink: 'https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia'
+        moreInfoLink: 'https://www.ipea.gov.br/ods/ods1.html'
     }
 ]; 
