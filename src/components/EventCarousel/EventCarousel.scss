@@ -8,6 +8,8 @@
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  padding: v.$spacing-lg;
 
   .carousel-container {
     position: relative;
@@ -174,6 +176,89 @@
     font-size: 1.25rem;
     color: v.$color-text-dark;
     background-color: lighten(v.$color-background-primary, 10%);
+  }
+
+  .event-title {
+    font-family: v.$font-bold;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: v.$spacing-md;
+    color: v.$color-card-green;
+  }
+
+  .event-description {
+    font-family: v.$font-primary;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: v.$spacing-md;
+    color: v.$color-text-dark;
+  }
+
+  .event-date {
+    font-family: v.$font-alternative;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: v.$color-card-blue;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .event-location {
+    font-family: v.$font-display;
+    font-size: 0.9rem;
+    color: v.$color-card-orange;
+  }
+
+  .event-important {
+    background-color: v.$color-card-green;
+    
+    .event-title {
+      color: v.$color-text-light;
+      font-family: v.$font-heading;
+      font-weight: 700;
+    }
+
+    .event-description {
+      color: v.$color-text-light;
+    }
+
+    .event-date {
+      color: #f5f5f5;
+    }
+
+    .event-location {
+      color: #f5f5f5;
+    }
+  }
+
+  .event-educational {
+    border-left: 4px solid v.$color-card-blue;
+    
+    .event-title {
+      font-family: v.$font-rounded;
+    }
+  }
+
+  .event-festive {
+    background: linear-gradient(
+      135deg,
+      v.$color-card-green,
+      v.$color-card-blue
+    );
+    
+    .event-title {
+      font-family: v.$font-playful;
+      color: v.$color-text-light;
+    }
+
+    .event-description {
+      color: v.$color-text-light;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 }
 

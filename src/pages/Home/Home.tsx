@@ -59,7 +59,7 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            <Header logoSrc="/assets/images/logo-secretaria.svg" />
+            <Header logoSrc="/assets/images/logo-secretaria.png" />
 
             <main className="main-content">
                 {/* Seção do carrossel de eventos do mês atual */}

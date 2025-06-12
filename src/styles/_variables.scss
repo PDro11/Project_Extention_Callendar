@@ -1,3 +1,5 @@
+@use "color-palettes" as palettes;
+
 // Cores
 $color-background-primary: #D4F2D4; // Verde claro do fundo
 $color-card-green: #67B467; // Verde dos cards
@@ -15,9 +17,15 @@ $color-text-light: #FFFFFF;
 $color-text-dark: #333333;
 $color-heading: #2E7D32; // Verde escuro para títulos
 
-// Fontes (Exemplo - Adicione fontes do Google Fonts se for usar)
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Open Sans', sans-serif;
+// Fontes
+$font-primary: 'Inter', sans-serif;
+$font-heading: 'Poppins', sans-serif;
+$font-accent: 'Nunito', sans-serif;
+$font-display: 'Quicksand', sans-serif;
+$font-alternative: 'Rubik', sans-serif;
+$font-playful: 'Baloo 2', sans-serif;
+$font-rounded: 'M PLUS Rounded 1c', sans-serif;
+$font-bold: 'Sen', sans-serif;
 
 // Espaçamento
 $spacing-xs: 4px;

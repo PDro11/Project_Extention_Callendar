@@ -37,7 +37,7 @@ const MonthDetailsPage: React.FC = () => {
 
     return (
         <div className="month-details-page">
-            <Header logoSrc="/assets/images/logo-secretaria.svg" />
+            <Header logoSrc="/assets/images/logo-secretaria.png" />
             
             <div className="container">
                 <div className="back-button-container">

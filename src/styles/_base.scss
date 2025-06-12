@@ -1,5 +1,8 @@
 @use "variables" as v;
 
+// Importação das fontes do Google
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Nunito:wght@400;600;700&family=Quicksand:wght@400;500;600&family=Rubik:wght@400;500;600&family=Baloo+2:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Sen:wght@400;500;600&display=swap');
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -7,7 +10,7 @@
 }
 
 body {
-    font-family: v.$font-primary;
+    font-family: 'Inter', sans-serif;
     background-color: v.$color-background-primary;
     color: v.$color-text-dark;
     line-height: 1.6;
@@ -23,6 +26,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
     color: v.$color-heading;
     margin-bottom: v.$spacing-sm;
 }
@@ -34,6 +38,31 @@ p {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+// Classes utilitárias para fontes
+.font-nunito {
+    font-family: 'Nunito', sans-serif;
+}
+
+.font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.font-rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+.font-baloo {
+    font-family: 'Baloo 2', sans-serif;
+}
+
+.font-rounded {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.font-sen {
+    font-family: 'Sen', sans-serif;
 }
 
 // Opcional: Para usar fontes do Google Fonts, adicione aqui o import, por exemplo:

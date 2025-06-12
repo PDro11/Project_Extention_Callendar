@@ -1,0 +1,129 @@
+// Paletas de cores por mês e tema
+
+// Janeiro - Visibilidade Trans
+$january-palette: (
+    'primary': #5EC3FF,    // Azul claro
+    'secondary': #FCA9D7,  // Rosa claro
+    'light': #F5F5F5,     // Branco gelo
+    'accent': #C7B6F5,    // Lilás pastel
+    'background': #FFFFFF  // Branco
+);
+
+// Fevereiro - Gravidez na Adolescência
+$february-palette: (
+    'primary': #F9B3C2,   // Rosa bebê
+    'secondary': #A6C48A, // Verde folha
+    'accent': #A3C5E3,    // Azul suave
+    'light': #EDEDED,     // Cinza claro
+    'background': #FFFFFF // Branco
+);
+
+// Março - Mulher
+$march-palette: (
+    'primary': #B583B0,   // Roxo violeta
+    'secondary': #DA627D, // Rosa escuro
+    'light': #F6E8EA,     // Creme
+    'accent': #984063,    // Vinho suave
+    'background': #FFFFFF // Branco
+);
+
+// Abril - Alienação Parental
+$april-palette: (
+    'primary': #426AA1,   // Azul marinho
+    'secondary': #F2E2C4, // Amarelo pálido
+    'accent': #D96057,    // Vermelho queimado
+    'neutral': #AAB7C4,   // Cinza azulado
+    'background': #FFFFFF // Branco
+);
+
+// Maio - Assistente Social e Combate ao Abuso Infantil
+$may-palette: (
+    'primary': #6DAA5B,   // Verde musgo
+    'secondary': #F7B267, // Laranja suave
+    'accent': #D3A588,    // Marrom claro
+    'light': #F2EDE4,     // Bege
+    'background': #FFFFFF // Branco
+);
+
+// Junho - Trabalho Infantil e Violência contra Idosos
+$june-palette: (
+    'primary': #7AA5D2,   // Azul lápis
+    'secondary': #E84A5F, // Vermelho vibrante
+    'accent': #F7A072,    // Laranja escolar
+    'light': #9BC995,     // Verde esperança
+    'background': #FFFFFF // Branco
+);
+
+// Julho - Cultura e Paz
+$july-palette: (
+    'primary': #FDFDFD,   // Branco perolado
+    'secondary': #88D9E6, // Azul céu
+    'accent': #8DAA91,    // Verde oliva
+    'light': #F2908A,     // Rosa coral
+    'background': #FFFFFF // Branco
+);
+
+// Agosto - Aniversário de Bauru, População em Situação de Rua, etc.
+$august-palette: (
+    'primary': #3267B0,   // Azul bandeira
+    'secondary': #D64045, // Vermelho
+    'accent': #6BBF59,    // Verde folha
+    'light': #F9F9F9,     // Branco gelo
+    'background': #FFFFFF // Branco
+);
+
+// Setembro - Pessoa com Deficiência e Pessoa Idosa
+$september-palette: (
+    'primary': #2F80ED,   // Azul acessibilidade
+    'secondary': #6FCF97, // Verde
+    'accent': #F2994A,    // Laranja
+    'light': #E0E0E0,     // Cinza claro
+    'background': #FFFFFF // Branco
+);
+
+// Outubro - Artes Sem Barreiras e Segurança Alimentar
+$october-palette: (
+    'primary': #EE6C4D,   // Vermelho artístico
+    'secondary': #5D9CEC, // Azul tinta
+    'accent': #F2C14E,    // Amarelo criativo
+    'light': #8AD8B3,     // Verde água
+    'background': #FFFFFF // Branco
+);
+
+// Novembro - Consciência Negra e Não Violência contra a Mulher
+$november-palette: (
+    'primary': #4E342E,   // Marrom escuro
+    'secondary': #F9A825, // Dourado
+    'accent': #B85C38,    // Vermelho terra
+    'dark': #1C1C1C,      // Preto
+    'background': #FFFFFF // Branco
+);
+
+// Dezembro - Direitos Humanos e Combate à Pobreza
+$december-palette: (
+    'primary': #0077B6,   // Azul global
+    'secondary': #90BE6D, // Verde inclusão
+    'accent': #FFD166,    // Amarelo calor
+    'light': #F3722C,     // Terracota
+    'background': #FFFFFF // Branco
+);
+
+// Função para obter cor da paleta
+@function get-palette-color($month, $color-type) {
+    $palette: null;
+    
+    @if $month == 'january' { $palette: $january-palette; }
+    @else if $month == 'february' { $palette: $february-palette; }
+    @else if $month == 'march' { $palette: $march-palette; }
+    @else if $month == 'april' { $palette: $april-palette; }
+    @else if $month == 'may' { $palette: $may-palette; }
+    @else if $month == 'june' { $palette: $june-palette; }
+    @else if $month == 'july' { $palette: $july-palette; }
+    @else if $month == 'august' { $palette: $august-palette; }
+    @else if $month == 'september' { $palette: $september-palette; }
+    @else if $month == 'october' { $palette: $october-palette; }
+    @else if $month == 'november' { $palette: $november-palette; }
+    @else if $month == 'december' { $palette: $december-palette; }
+    
+    @return map-get($palette, $color-type);
+} 
