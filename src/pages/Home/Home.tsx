@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MonthCard from '../../components/MonthCard/MonthCard';
 import Modal from '../../components/Modal/Modal';
@@ -7,14 +6,6 @@ import EventCarousel from '../../components/EventCarousel/EventCarousel';
 import { eventsData, type Event } from '../../data/eventsData';
 import { monthHeadersData } from '../../data/monthHeadersData';
 import './Home.scss'; // Importa o SCSS da página
-
-interface EventDetail {
-    title: string;
-    date: string;
-    whatIs?: string;
-    whyIsImportant?: string;
-    moreInfoLink?: string;
-}
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
