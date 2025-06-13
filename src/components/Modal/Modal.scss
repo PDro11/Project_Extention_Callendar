@@ -13,26 +13,54 @@
     align-items: center;
     z-index: 2000;
     animation: fadeIn 0.3s ease-out; // Animação de entrada
+    padding: v.$spacing-sm;
+    
+    @include m.mobile {
+        align-items: flex-start;
+        padding-top: 10%;
+    }
 }
 
 .modal-content {
     background-color: v.$color-card-green; // Cor do modal de detalhes
-    padding: v.$spacing-xl;
+    padding: v.$spacing-lg;
     border-radius: 15px;
     max-width: 700px;
-    width: 90%;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     position: relative;
     color: v.$color-text-light;
     text-align: center;
     animation: slideInFromTop 0.3s ease-out; // Animação de entrada do conteúdo
+    
+    @include m.tablet {
+        padding: v.$spacing-xl;
+        width: 90%;
+    }
+    
+    // Estilização da barra de rolagem para melhor UX
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+    }
 }
 
 .modal-close {
     position: absolute;
-    top: v.$spacing-md;
-    right: v.$spacing-md;
-    font-size: 2.5rem; // Aumentei o tamanho para ficar mais visível
+    top: v.$spacing-sm;
+    right: v.$spacing-sm;
+    font-size: 2rem;
     color: v.$color-text-light;
     cursor: pointer;
     background: none;
@@ -40,6 +68,18 @@
     padding: v.$spacing-sm;
     line-height: 1;
     transition: color 0.2s ease;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @include m.tablet {
+        top: v.$spacing-md;
+        right: v.$spacing-md;
+        font-size: 2.5rem;
+    }
 
     &:hover {
         color: darken(v.$color-text-light, 15%); // Escurece mais no hover
@@ -47,49 +87,104 @@
 }
 
 .modal-header {
-    margin-bottom: v.$spacing-lg;
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: v.$spacing-sm;
-        @include m.tablet { font-size: 3rem; }
+    margin-bottom: v.$spacing-md;
+    padding-right: v.$spacing-xl; // Espaço para o botão de fechar
+    
+    @include m.tablet {
+        margin-bottom: v.$spacing-lg;
     }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: v.$spacing-xs;
+        line-height: 1.2;
+        
+        @include m.tablet { 
+            font-size: 2.5rem;
+            margin-bottom: v.$spacing-sm; 
+        }
+        
+        @include m.desktop { 
+            font-size: 3rem; 
+        }
+    }
+    
     h3 {
-        font-size: 1.5rem;
-        @include m.tablet { font-size: 1.8rem; }
+        font-size: 1.2rem;
+        
+        @include m.tablet { 
+            font-size: 1.5rem; 
+        }
+        
+        @include m.desktop { 
+            font-size: 1.8rem; 
+        }
     }
 }
 
 .modal-body {
-    margin-bottom: v.$spacing-xl;
+    margin-bottom: v.$spacing-md;
     text-align: left; // Alinha o texto das perguntas/respostas
+    
+    @include m.tablet {
+        margin-bottom: v.$spacing-xl;
+    }
+    
     .modal-question {
         font-weight: bold;
-        font-size: 1.2rem;
-        margin-top: v.$spacing-md;
-        margin-bottom: v.$spacing-sm;
-        color: v.$color-card-yellow; // Destaca a pergunta
-    }
-    p {
         font-size: 1.1rem;
-        margin-bottom: v.$spacing-md;
+        margin-top: v.$spacing-md;
+        margin-bottom: v.$spacing-xs;
+        color: v.$color-card-yellow; // Destaca a pergunta
+        
+        @include m.tablet {
+            font-size: 1.2rem;
+            margin-bottom: v.$spacing-sm;
+        }
+    }
+    
+    p {
+        font-size: 1rem;
+        margin-bottom: v.$spacing-sm;
+        line-height: 1.5;
+        
+        @include m.tablet {
+            font-size: 1.1rem;
+            margin-bottom: v.$spacing-md;
+        }
     }
 }
 
 .modal-action {
-    font-size: 1.2rem;
-    margin-top: v.$spacing-lg;
+    font-size: 1.1rem;
+    margin-top: v.$spacing-md;
+    
+    @include m.tablet {
+        font-size: 1.2rem;
+        margin-top: v.$spacing-lg;
+    }
 
     a {
         background-color: v.$color-text-light;
         color: v.$color-text-dark;
-        padding: v.$spacing-md v.$spacing-xl;
+        padding: v.$spacing-sm v.$spacing-lg;
         border-radius: 8px;
         display: inline-block;
         transition: background-color 0.3s ease, transform 0.2s ease;
+        font-weight: 500;
+        text-decoration: none;
+        
+        @include m.tablet {
+            padding: v.$spacing-md v.$spacing-xl;
+        }
 
-        &:hover {
+        &:hover, &:focus {
             background-color: darken(v.$color-text-light, 10%);
             transform: translateY(-2px);
+        }
+        
+        &:active {
+            transform: translateY(0);
         }
     }
 }
@@ -103,4 +198,26 @@
 @keyframes slideInFromTop {
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+// Ajustes para dispositivos muito pequenos
+@media (max-height: 500px) {
+    .modal-container {
+        align-items: flex-start;
+        padding-top: v.$spacing-sm;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+        }
+    }
 } 
