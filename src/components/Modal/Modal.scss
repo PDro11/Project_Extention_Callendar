@@ -15,16 +15,28 @@
     animation: fadeIn 0.3s ease-out; // Animação de entrada
     padding: v.$spacing-sm;
     
+    @include m.mobile-small {
+        padding: v.$spacing-xs;
+    }
+    
     @include m.mobile {
         align-items: flex-start;
-        padding-top: 10%;
+        padding-top: 5%;
+        
+        @include m.landscape {
+            padding-top: 2%;
+        }
+    }
+    
+    @include m.tablet-up {
+        padding: v.$spacing-md;
     }
 }
 
 .modal-content {
     background-color: v.$color-card-green; // Cor do modal de detalhes
-    padding: v.$spacing-lg;
-    border-radius: 15px;
+    padding: v.$spacing-md;
+    border-radius: 12px;
     max-width: 700px;
     width: 100%;
     max-height: 90vh;
@@ -35,14 +47,36 @@
     text-align: center;
     animation: slideInFromTop 0.3s ease-out; // Animação de entrada do conteúdo
     
+    @include m.mobile-small {
+        padding: v.$spacing-sm;
+        border-radius: 10px;
+    }
+    
     @include m.tablet {
-        padding: v.$spacing-xl;
+        padding: v.$spacing-lg;
         width: 90%;
+        border-radius: 15px;
+    }
+    
+    @include m.desktop {
+        padding: v.$spacing-xl;
+        width: 80%;
+    }
+    
+    @include m.landscape {
+        @include m.mobile {
+            max-height: 85vh;
+            padding: v.$spacing-sm;
+        }
     }
     
     // Estilização da barra de rolagem para melhor UX
     &::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
+        
+        @include m.tablet-up {
+            width: 8px;
+        }
     }
     
     &::-webkit-scrollbar-track {
@@ -53,71 +87,82 @@
     &::-webkit-scrollbar-thumb {
         background-color: rgba(255, 255, 255, 0.3);
         border-radius: 10px;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
     }
 }
 
 .modal-close {
     position: absolute;
-    top: v.$spacing-sm;
-    right: v.$spacing-sm;
-    font-size: 2rem;
+    top: v.$spacing-xs;
+    right: v.$spacing-xs;
+    font-size: 1.8rem;
     color: v.$color-text-light;
     cursor: pointer;
     background: none;
     border: none;
-    padding: v.$spacing-sm;
+    padding: v.$spacing-xs;
     line-height: 1;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
     z-index: 10;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
     
     @include m.tablet {
+        top: v.$spacing-sm;
+        right: v.$spacing-sm;
+        font-size: 2rem;
+    }
+    
+    @include m.desktop {
         top: v.$spacing-md;
         right: v.$spacing-md;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        width: 44px;
+        height: 44px;
     }
 
     &:hover {
-        color: darken(v.$color-text-light, 15%); // Escurece mais no hover
+        color: darken(v.$color-text-light, 15%);
+        background-color: rgba(0, 0, 0, 0.2);
     }
 }
 
 .modal-header {
     margin-bottom: v.$spacing-md;
-    padding-right: v.$spacing-xl; // Espaço para o botão de fechar
+    padding-right: v.$spacing-lg;
+    
+    @include m.mobile-small {
+        margin-bottom: v.$spacing-sm;
+        padding-right: v.$spacing-md;
+    }
     
     @include m.tablet {
         margin-bottom: v.$spacing-lg;
+        padding-right: v.$spacing-xl;
     }
     
     h2 {
-        font-size: 1.8rem;
+        @include m.responsive-font(1.5rem, 3rem);
         margin-bottom: v.$spacing-xs;
         line-height: 1.2;
         
-        @include m.tablet { 
-            font-size: 2.5rem;
-            margin-bottom: v.$spacing-sm; 
-        }
-        
-        @include m.desktop { 
-            font-size: 3rem; 
+        @include m.mobile-small {
+            font-size: 1.4rem;
         }
     }
     
     h3 {
-        font-size: 1.2rem;
+        @include m.responsive-font(1rem, 1.8rem);
         
-        @include m.tablet { 
-            font-size: 1.5rem; 
-        }
-        
-        @include m.desktop { 
-            font-size: 1.8rem; 
+        @include m.mobile-small {
+            font-size: 0.9rem;
         }
     }
 }
@@ -126,7 +171,15 @@
     margin-bottom: v.$spacing-md;
     text-align: left; // Alinha o texto das perguntas/respostas
     
-    @include m.tablet {
+    @include m.mobile-small {
+        margin-bottom: v.$spacing-sm;
+    }
+    
+    @include m.tablet-up {
+        margin-bottom: v.$spacing-lg;
+    }
+    
+    @include m.desktop {
         margin-bottom: v.$spacing-xl;
     }
     
@@ -137,7 +190,12 @@
         margin-bottom: v.$spacing-xs;
         color: v.$color-card-yellow; // Destaca a pergunta
         
-        @include m.tablet {
+        @include m.mobile-small {
+            font-size: 1rem;
+            margin-top: v.$spacing-sm;
+        }
+        
+        @include m.tablet-up {
             font-size: 1.2rem;
             margin-bottom: v.$spacing-sm;
         }
@@ -148,7 +206,12 @@
         margin-bottom: v.$spacing-sm;
         line-height: 1.5;
         
-        @include m.tablet {
+        @include m.mobile-small {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        @include m.tablet-up {
             font-size: 1.1rem;
             margin-bottom: v.$spacing-md;
         }
@@ -159,7 +222,12 @@
     font-size: 1.1rem;
     margin-top: v.$spacing-md;
     
-    @include m.tablet {
+    @include m.mobile-small {
+        font-size: 1rem;
+        margin-top: v.$spacing-sm;
+    }
+    
+    @include m.tablet-up {
         font-size: 1.2rem;
         margin-top: v.$spacing-lg;
     }
@@ -167,20 +235,30 @@
     a {
         background-color: v.$color-text-light;
         color: v.$color-text-dark;
-        padding: v.$spacing-sm v.$spacing-lg;
+        padding: v.$spacing-sm v.$spacing-md;
         border-radius: 8px;
         display: inline-block;
-        transition: background-color 0.3s ease, transform 0.2s ease;
+        transition: all 0.3s ease;
         font-weight: 500;
         text-decoration: none;
         
-        @include m.tablet {
+        @include m.mobile-small {
+            padding: v.$spacing-xs v.$spacing-sm;
+            border-radius: 6px;
+        }
+        
+        @include m.tablet-up {
+            padding: v.$spacing-sm v.$spacing-lg;
+        }
+        
+        @include m.desktop {
             padding: v.$spacing-md v.$spacing-xl;
         }
 
         &:hover, &:focus {
             background-color: darken(v.$color-text-light, 10%);
             transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
         
         &:active {
@@ -218,6 +296,42 @@
         
         h3 {
             font-size: 1.1rem;
+        }
+    }
+}
+
+// Ajustes para dispositivos muito pequenos em orientação paisagem
+@include m.landscape {
+    @include m.mobile {
+        .modal-header {
+            h2 {
+                font-size: 1.3rem;
+                margin-bottom: v.$spacing-xs;
+            }
+            
+            h3 {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .modal-body {
+            .modal-question {
+                font-size: 1rem;
+                margin-top: v.$spacing-sm;
+            }
+            
+            p {
+                font-size: 0.9rem;
+                margin-bottom: v.$spacing-xs;
+            }
+        }
+        
+        .modal-action {
+            margin-top: v.$spacing-sm;
+            
+            a {
+                padding: v.$spacing-xs v.$spacing-sm;
+            }
         }
     }
 } 

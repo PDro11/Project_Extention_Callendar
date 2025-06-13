@@ -2,8 +2,8 @@
 @use "../../styles/mixins" as m;
 
 .main-header {
-    background-color: v.$color-card-green;
-    padding: v.$spacing-md;
+    background: linear-gradient(to right, darken(v.$color-card-green, 15%), v.$color-card-green);
+    padding: v.$spacing-md v.$spacing-sm;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,72 +12,148 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%; // Garante que o cabeçalho ocupe toda a largura
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra sutil para destacar o cabeçalho
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+    @include m.tablet-up {
+        padding: v.$spacing-lg v.$spacing-md;
+    }
 }
 
 .header-content {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: v.$spacing-md;
-    flex-direction: column; // Padrão para mobile (empilha)
+    flex-direction: column;
     width: 100%;
-    max-width: 1200px; // Limita a largura máxima em telas grandes
+    max-width: 1200px;
+    
+    @include m.mobile-small {
+        gap: v.$spacing-sm;
+    }
 
-    @include m.tablet { // Para tablets e desktops (lado a lado)
+    @include m.tablet-up {
         flex-direction: row;
+        justify-content: flex-start;
         padding: v.$spacing-sm v.$spacing-md;
+        gap: v.$spacing-xl;
+    }
+    
+    @include m.desktop {
+        padding: v.$spacing-md v.$spacing-lg;
     }
 }
 
 .logo-secretaria {
-    width: 100px; // Tamanho menor para mobile
+    width: 120px;
     height: auto;
     margin: v.$spacing-sm 0;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: v.$spacing-xs;
+    border-radius: 10px;
+    
+    @include m.mobile-small {
+        width: 100px;
+    }
+    
+    &:hover {
+        transform: scale(1.05);
+    }
     
     @include m.tablet {
-        width: 130px; // Tamanho médio para tablet
+        width: 140px;
+        padding: v.$spacing-sm;
     }
     
     @include m.desktop {
-        width: 150px; // Tamanho maior para desktop
+        width: 160px;
+    }
+    
+    @include m.desktop-large {
+        width: 180px;
     }
 }
 
 .header-text {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); // Sombra no texto para melhorar legibilidade
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-xs;
+    padding: 0 v.$spacing-sm;
+    
+    @include m.tablet-up {
+        align-items: flex-start;
+        padding: 0;
+    }
     
     h1 {
-        font-size: 2rem; // Tamanho menor para mobile
-        color: v.$color-text-light;
+        @include m.responsive-font(1.8rem, 3.2rem);
+        color: white;
         margin-bottom: v.$spacing-xs;
-        font-weight: 700; // Texto mais forte
-        letter-spacing: 0.5px; // Espaçamento entre letras
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        font-family: v.$font-display;
+        line-height: 1.2;
         
-        @include m.tablet {
-            font-size: 2.5rem; // Tamanho médio para tablet
-        }
-        
-        @include m.desktop {
-            font-size: 3rem; // Tamanho maior para desktop
+        @include m.mobile-small {
+            font-size: 1.6rem;
         }
     }
     
     p {
-        font-size: 0.9rem; // Tamanho menor para mobile
-        color: v.$color-text-light;
+        @include m.responsive-font(0.9rem, 1.1rem);
+        color: rgba(255, 255, 255, 0.9);
         margin-bottom: v.$spacing-xs;
+        font-family: v.$font-accent;
+        font-weight: 500;
         
-        @include m.tablet {
-            font-size: 1rem; // Tamanho normal para tablet e desktop
+        @include m.mobile-small {
+            font-size: 0.8rem;
         }
         
         &.tagline {
             font-style: italic;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: v.$spacing-xs;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             
-            @include m.tablet {
-                font-size: 0.9rem;
+            @include m.mobile-small {
+                font-size: 0.75rem;
+                padding: 4px 10px;
+            }
+            
+            @include m.tablet-up {
+                font-size: 0.95rem;
+                padding: 8px 16px;
+            }
+        }
+    }
+    
+    @include m.landscape {
+        @include m.mobile {
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+            
+            p {
+                font-size: 0.8rem;
+                margin-bottom: 0;
+            }
+            
+            .tagline {
+                margin-top: 0;
+                padding: 3px 8px;
             }
         }
     }

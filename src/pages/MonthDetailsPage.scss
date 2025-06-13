@@ -2,74 +2,151 @@
 @use "../styles/mixins" as m;
 
 .month-details-page {
-    font-family: 'Nunito', sans-serif;
+    font-family: v.$font-accent;
     background-color: v.$color-background-primary;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
+        @include m.container;
+        flex: 1;
+        padding-top: v.$spacing-md;
+        padding-bottom: v.$spacing-xl;
+        
+        @include m.tablet-up {
+            padding-top: v.$spacing-lg;
+            padding-bottom: v.$spacing-xxl;
+        }
     }
 
     .back-button-container {
-        margin-bottom: 2rem;
+        margin-bottom: v.$spacing-lg;
+        
+        @include m.mobile-small {
+            margin-bottom: v.$spacing-md;
+        }
     }
 
     .back-button {
         display: inline-block;
-        padding: 0.5rem 1rem;
+        padding: v.$spacing-xs v.$spacing-md;
         background-color: v.$color-card-green;
         color: white;
         text-decoration: none;
-        border-radius: 4px;
+        border-radius: 8px;
         font-weight: bold;
-        transition: background-color 0.3s;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+        @include m.mobile-small {
+            padding: v.$spacing-xs v.$spacing-sm;
+            font-size: 0.9rem;
+        }
+        
+        @include m.tablet-up {
+            padding: v.$spacing-sm v.$spacing-lg;
+            font-size: 1.1rem;
+        }
 
         &:hover {
             background-color: darken(v.$color-card-green, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        &:active {
+            transform: translateY(0);
         }
     }
 
     h1 {
-        font-size: 2.5rem;
+        @include m.responsive-font(1.8rem, 3rem);
         color: v.$color-heading;
-        margin-bottom: 2rem;
+        margin-bottom: v.$spacing-xl;
         text-align: center;
+        font-weight: 700;
+        
+        @include m.mobile-small {
+            font-size: 1.6rem;
+            margin-bottom: v.$spacing-lg;
+        }
     }
 
     .events-list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: v.$spacing-md;
+        
+        @include m.mobile-small {
+            grid-template-columns: 1fr;
+            gap: v.$spacing-sm;
+        }
+        
+        @include m.tablet-up {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: v.$spacing-lg;
+        }
+        
+        @include m.desktop {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
     }
 
     .event-item {
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem;
+        background: linear-gradient(135deg, white, #f5f5f5);
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        padding: v.$spacing-lg;
         cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: all 0.3s ease;
         display: flex;
         flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        
+        @include m.mobile-small {
+            padding: v.$spacing-md;
+            border-radius: 10px;
+        }
 
         &:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .event-date {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             color: v.$color-card-green;
-            margin-bottom: 0.5rem;
+            margin-bottom: v.$spacing-sm;
+            background-color: rgba(103, 180, 103, 0.1);
+            padding: v.$spacing-xs v.$spacing-sm;
+            border-radius: 6px;
+            display: inline-block;
+            align-self: flex-start;
+            
+            @include m.mobile-small {
+                font-size: 1rem;
+            }
+            
+            @include m.tablet-up {
+                font-size: 1.2rem;
+            }
         }
 
         .event-title {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: v.$color-heading;
+            line-height: 1.3;
+            
+            @include m.mobile-small {
+                font-size: 1.2rem;
+            }
+            
+            @include m.tablet-up {
+                font-size: 1.5rem;
+            }
         }
     }
 
@@ -77,6 +154,52 @@
         text-align: center;
         font-size: 1.2rem;
         color: v.$color-text-dark;
-        margin-top: 2rem;
+        margin-top: v.$spacing-xl;
+        padding: v.$spacing-lg;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        
+        @include m.mobile-small {
+            font-size: 1.1rem;
+            margin-top: v.$spacing-lg;
+            padding: v.$spacing-md;
+        }
+    }
+    
+    @include m.landscape {
+        @include m.mobile {
+            .container {
+                padding-top: v.$spacing-sm;
+                padding-bottom: v.$spacing-lg;
+            }
+            
+            .back-button-container {
+                margin-bottom: v.$spacing-md;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: v.$spacing-md;
+            }
+            
+            .events-list {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: v.$spacing-sm;
+            }
+            
+            .event-item {
+                padding: v.$spacing-sm;
+                
+                .event-date {
+                    font-size: 0.9rem;
+                    margin-bottom: v.$spacing-xs;
+                }
+                
+                .event-title {
+                    font-size: 1.1rem;
+                }
+            }
+        }
     }
 } 

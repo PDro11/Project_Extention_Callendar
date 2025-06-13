@@ -17,6 +17,11 @@ $color-text-light: #FFFFFF;
 $color-text-dark: #333333;
 $color-heading: #2E7D32; // Verde escuro para títulos
 
+// Variações de transparência
+$transparency-low: 0.1;
+$transparency-medium: 0.3;
+$transparency-high: 0.7;
+
 // Fontes
 $font-primary: 'Inter', sans-serif;
 $font-heading: 'Poppins', sans-serif;
@@ -27,6 +32,17 @@ $font-playful: 'Baloo 2', sans-serif;
 $font-rounded: 'M PLUS Rounded 1c', sans-serif;
 $font-bold: 'Sen', sans-serif;
 
+// Tamanhos de fonte responsivos
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-md: 1.125rem;  // 18px
+$font-size-lg: 1.25rem;   // 20px
+$font-size-xl: 1.5rem;    // 24px
+$font-size-2xl: 1.875rem; // 30px
+$font-size-3xl: 2.25rem;  // 36px
+$font-size-4xl: 3rem;     // 48px
+
 // Espaçamento
 $spacing-xs: 4px;
 $spacing-sm: 8px;
@@ -34,3 +50,48 @@ $spacing-md: 16px;
 $spacing-lg: 24px;
 $spacing-xl: 32px;
 $spacing-xxl: 48px;
+$spacing-3xl: 64px;
+$spacing-4xl: 96px;
+
+// Bordas e arredondamentos
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-2xl: 24px;
+$border-radius-full: 9999px;
+
+// Sombras
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+$shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+
+// Transições
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Larguras de contêiner
+$container-max-width-sm: 640px;
+$container-max-width-md: 768px;
+$container-max-width-lg: 1024px;
+$container-max-width-xl: 1280px;
+$container-max-width-2xl: 1536px;
+
+// Breakpoints (para referência, usar os mixins para aplicação)
+$breakpoint-mobile-small: 375px;
+$breakpoint-mobile: 767px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-large: 1440px;

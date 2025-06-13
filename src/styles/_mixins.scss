@@ -1,4 +1,22 @@
+@mixin mobile-small {
+    @media (max-width: 375px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
 @mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin tablet-up {
     @media (min-width: 768px) {
         @content;
     }
@@ -10,8 +28,80 @@
     }
 }
 
-@mixin mobile {
-    @media (max-width: 767px) {
+@mixin desktop-large {
+    @media (min-width: 1440px) {
         @content;
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin responsive-font($min-size, $max-size) {
+    font-size: clamp(#{$min-size}, calc(#{$min-size} + 1vw), #{$max-size});
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@mixin truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @include tablet-up {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    @include desktop {
+        max-width: 1200px;
+    }
+    
+    @include desktop-large {
+        max-width: 1400px;
     }
 }

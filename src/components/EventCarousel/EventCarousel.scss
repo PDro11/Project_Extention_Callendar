@@ -3,18 +3,33 @@
 
 .event-carousel {
   width: 100%;
-  margin: v.$spacing-lg 0;
+  margin: v.$spacing-xs 0;
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   background-color: white;
-  padding: v.$spacing-md;
+  padding: 0;
+  
+  @include m.mobile-small {
+    padding: v.$spacing-xs;
+    margin: v.$spacing-xs 0;
+    border-radius: 12px;
+  }
   
   @include m.mobile {
-    padding: v.$spacing-sm;
-    margin: v.$spacing-md 0;
-    border-radius: 8px;
+    padding: v.$spacing-xs;
+    border-radius: 14px;
+  }
+  
+  @include m.tablet-up {
+    padding: v.$spacing-md;
+    margin: v.$spacing-sm 0;
+    border-radius: 18px;
+  }
+  
+  @include m.desktop {
+    padding: v.$spacing-lg;
   }
 
   .carousel-container {
@@ -22,16 +37,26 @@
     height: 280px;
     width: 100%;
     
+    @include m.mobile-small {
+      height: 220px;
+    }
+    
     @include m.tablet {
-      height: 320px;
+      height: 340px;
     }
     
     @include m.desktop {
-      height: 350px;
+      height: 380px;
     }
     
-    @include m.mobile {
-      height: 240px;
+    @include m.desktop-large {
+      height: 420px;
+    }
+    
+    @include m.landscape {
+      @include m.mobile {
+        height: 180px;
+      }
     }
     
     .carousel-slide {
@@ -41,12 +66,14 @@
       width: 100%;
       height: 100%;
       opacity: 0;
-      transition: opacity 0.5s ease-in-out;
+      transform: scale(0.92);
+      transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
       cursor: pointer;
       
       &.active {
         opacity: 1;
         z-index: 1;
+        transform: scale(1);
       }
     }
   }
@@ -56,19 +83,31 @@
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0;
     overflow: hidden;
-    padding: v.$spacing-xl;
+    padding: v.$spacing-md v.$spacing-lg;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: v.$color-heading;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    
+    @include m.mobile-small {
+      padding: v.$spacing-xs v.$spacing-sm;
+    }
     
     @include m.mobile {
-      padding: v.$spacing-md;
-      border-radius: 8px;
+      padding: v.$spacing-sm v.$spacing-md;
+    }
+    
+    @include m.tablet-up {
+      padding: v.$spacing-md v.$spacing-lg;
+    }
+    
+    @include m.desktop {
+      padding: v.$spacing-lg v.$spacing-xl;
     }
     
     // Gradiente para melhorar a legibilidade do texto
@@ -79,7 +118,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+      background: linear-gradient(to bottom, 
+                  rgba(0, 0, 0, 0.02) 0%, 
+                  rgba(0, 0, 0, 0.1) 40%, 
+                  rgba(0, 0, 0, 0.3) 100%);
       z-index: 1;
     }
     
@@ -89,8 +131,8 @@
       max-width: 100%;
       margin: 0 auto;
       
-      @include m.tablet {
-        max-width: 90%;
+      @include m.tablet-up {
+        max-width: 95%;
       }
     }
     
@@ -99,39 +141,96 @@
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: v.$spacing-md;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.6);
       line-height: 1.2;
+      position: relative;
+      display: inline-block;
+      color: v.$color-heading;
+      
+      @include m.mobile-small {
+        font-size: 1.4rem;
+        margin-bottom: v.$spacing-xs;
+        
+        &::after {
+          width: 40px;
+          height: 2px;
+          bottom: -6px;
+        }
+      }
       
       @include m.mobile {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-bottom: v.$spacing-sm;
       }
       
       @include m.tablet {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        margin-bottom: v.$spacing-md;
       }
       
       @include m.desktop {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
+        margin-bottom: v.$spacing-lg;
       }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #1a73e8;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+        
+        @include m.mobile {
+          width: 60px;
+          height: 3px;
+          bottom: -8px;
+        }
+        
+        @include m.desktop {
+          width: 100px;
+          height: 5px;
+        }
+      }
+    }
+    
+    &:hover .event-title::after {
+      width: 120px;
+      background-color: #2196f3;
+      box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
     }
     
     .event-description {
       font-family: v.$font-primary;
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.5;
       margin-bottom: v.$spacing-md;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      color: v.$color-card-green;
       
-      @include m.mobile {
+      @include m.mobile-small {
         font-size: 0.9rem;
-        margin-bottom: v.$spacing-sm;
-        line-height: 1.4;
+        line-height: 1.3;
+        margin-bottom: v.$spacing-xs;
       }
       
-      @include m.tablet {
-        font-size: 1.1rem;
+      @include m.tablet-up {
+        font-size: 1.2rem;
+        line-height: 1.6;
         margin-bottom: v.$spacing-lg;
+        max-width: 90%;
+      }
+      
+      @include m.desktop {
+        font-size: 1.4rem;
+        margin-bottom: v.$spacing-xl;
       }
     }
     
@@ -142,90 +241,120 @@
       gap: v.$spacing-sm;
       flex-wrap: wrap;
       
-      @include m.tablet {
+      @include m.tablet-up {
         gap: v.$spacing-md;
       }
       
+      @include m.desktop {
+        gap: v.$spacing-lg;
+      }
+      
       .event-date, .event-location {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.25);
         padding: v.$spacing-xs v.$spacing-sm;
-        border-radius: 16px;
+        border-radius: 20px;
         font-size: 0.9rem;
-        font-weight: 500;
+        font-weight: 600;
+        backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         
-        @include m.tablet {
+        @include m.mobile-small {
+          font-size: 0.8rem;
+          padding: calc(v.$spacing-xs / 2) v.$spacing-xs;
+          border-radius: 16px;
+        }
+        
+        @include m.tablet-up {
           padding: v.$spacing-xs v.$spacing-md;
           font-size: 1rem;
-          border-radius: 20px;
+          border-radius: 25px;
+        }
+        
+        @include m.desktop {
+          padding: v.$spacing-sm v.$spacing-lg;
+          font-size: 1.2rem;
+          border-radius: 30px;
         }
       }
     }
     
-    // Cores específicas por mês - cores mais suaves
+    // Cores específicas por mês com gradientes
     &.month-january {
-      background: #5C9FD5; // Azul (Janeiro)
+      background: linear-gradient(135deg, #5C9FD5, #1A5B91); // Azul (Janeiro)
     }
     
     &.month-february {
-      background: #F78B8B; // Rosa (Fevereiro)
+      background: linear-gradient(135deg, #F78B8B, #D13F3F); // Rosa (Fevereiro)
     }
     
     &.month-march {
-      background: #F06292; // Rosa escuro (Março)
+      background: linear-gradient(135deg, #F06292, #B71C5B); // Rosa escuro (Março)
     }
     
     &.month-april {
-      background: #9E9E9E; // Cinza (Abril)
+      background: linear-gradient(135deg, #9E9E9E, #5D5D5D); // Cinza (Abril)
     }
     
     &.month-may {
-      background: #FFD54F; // Amarelo (Maio)
+      background: linear-gradient(135deg, #FFD54F, #FFA000); // Amarelo (Maio)
     }
     
     &.month-june {
-      background: #5C9FD5; // Azul (Junho)
+      background: linear-gradient(135deg, #5C9FD5, #1A5B91); // Azul (Junho)
     }
     
     &.month-july {
-      background: #81C784; // Verde (Julho)
+      background: linear-gradient(135deg, #81C784, #2E7D32); // Verde (Julho)
     }
     
     &.month-august {
-      background: #A1887F; // Marrom (Agosto)
+      background: linear-gradient(135deg, #A1887F, #5D4037); // Marrom (Agosto)
     }
     
     &.month-september {
-      background: #66BB6A; // Verde (Setembro)
+      background: linear-gradient(135deg, #66BB6A, #2E7D32); // Verde (Setembro)
     }
     
     &.month-october {
-      background: #FFA726; // Laranja (Outubro)
+      background: linear-gradient(135deg, #FFA726, #E65100); // Laranja (Outubro)
     }
     
     &.month-november {
-      background: #FF7043; // Laranja escuro (Novembro)
+      background: linear-gradient(135deg, #FF7043, #BF360C); // Laranja escuro (Novembro)
     }
     
     &.month-december {
-      background: #42A5F5; // Azul (Dezembro)
+      background: linear-gradient(135deg, #42A5F5, #0D47A1); // Azul (Dezembro)
     }
     
-    // Círculo amarelo para o ícone
+    // Efeito decorativo
     &::after {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100px;
-      height: 100px;
+      top: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.15);
-      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.1);
       z-index: 0;
       
-      @include m.tablet {
-        width: 120px;
-        height: 120px;
+      @include m.mobile-small {
+        width: 100px;
+        height: 100px;
+        top: -30px;
+        right: -30px;
+      }
+      
+      @include m.tablet-up {
+        width: 180px;
+        height: 180px;
+      }
+      
+      @include m.desktop {
+        width: 200px;
+        height: 200px;
       }
     }
   }
@@ -236,7 +365,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,17 +375,23 @@
     
     span {
       color: white;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      padding: v.$spacing-xs v.$spacing-sm;
-      border: 2px solid white;
-      border-radius: 16px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: v.$spacing-sm v.$spacing-lg;
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
       
-      @include m.tablet {
-        font-size: 1.2rem;
-        padding: v.$spacing-sm v.$spacing-md;
+      @include m.mobile-small {
+        font-size: 0.9rem;
+        padding: v.$spacing-xs v.$spacing-sm;
         border-radius: 20px;
+        border-width: 1px;
+      }
+      
+      @include m.mobile {
+        font-size: 1rem;
+        padding: v.$spacing-xs v.$spacing-md;
       }
     }
   }
@@ -265,124 +400,242 @@
     opacity: 1;
   }
   
-  // Para dispositivos touch, sempre mostrar o overlay
+  // Para dispositivos touch, mostrar sempre uma versão mais sutil do overlay
   @media (hover: none) {
     .carousel-slide .hover-overlay {
-      opacity: 1;
+      opacity: 0.7;
       background-color: rgba(0, 0, 0, 0.3);
     }
   }
   
+  // Controles do carrossel
   .carousel-controls {
     position: absolute;
-    bottom: v.$spacing-sm;
+    bottom: 20px;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4;
+    z-index: 10;
     
-    @include m.tablet {
-      bottom: v.$spacing-md;
+    @include m.mobile-small {
+      bottom: 10px;
     }
     
-    .control-button {
-      background-color: rgba(255, 255, 255, 0.8);
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin: 0 v.$spacing-xs;
-      font-weight: bold;
-      font-size: 1.2rem;
-      opacity: 0.8;
-      transition: all 0.2s ease;
-      
-      @include m.tablet {
-        width: 40px;
-        height: 40px;
-      }
-      
-      &:hover {
-        opacity: 1;
-        background-color: white;
-        transform: scale(1.1);
-      }
-      
-      // Melhorar área de toque para dispositivos móveis
-      @include m.mobile {
-        &::before {
-          content: '';
-          position: absolute;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-        }
-      }
+    @include m.tablet-up {
+      bottom: 25px;
     }
     
     .carousel-indicators {
       display: flex;
-      justify-content: center;
-      margin: 0 v.$spacing-sm;
+      gap: 8px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(3px);
+      
+      @include m.mobile-small {
+        gap: 6px;
+        padding: 4px 8px;
+      }
+      
+      @include m.tablet-up {
+        gap: 10px;
+        padding: 8px 16px;
+      }
       
       .indicator {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.5);
         border: none;
-        margin: 0 v.$spacing-xs;
-        padding: 0;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
         
-        @include m.tablet {
-          width: 10px;
-          height: 10px;
+        @include m.mobile-small {
+          width: 8px;
+          height: 8px;
         }
         
         &.active {
-          background-color: white;
+          background-color: v.$color-card-green;
           transform: scale(1.2);
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
         }
         
         &:hover {
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0.8);
         }
         
-        // Melhorar área de toque para dispositivos móveis
-        @include m.mobile {
-          &::before {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-          }
+        @include m.tablet-up {
+          width: 12px;
+          height: 12px;
         }
+        
+        @include m.desktop {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+  
+  // Botões de navegação reposicionados para as laterais
+  .control-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: v.$color-heading;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    
+    @include m.mobile-small {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+    }
+    
+    @include m.tablet-up {
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+    }
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    
+    &.prev {
+      left: 15px;
+      
+      @include m.mobile-small {
+        left: 8px;
+      }
+      
+      @include m.tablet-up {
+        left: 20px;
+      }
+    }
+    
+    &.next {
+      right: 15px;
+      
+      @include m.mobile-small {
+        right: 8px;
+      }
+      
+      @include m.tablet-up {
+        right: 20px;
       }
     }
   }
   
   .no-events {
-    height: 180px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    color: v.$color-text-dark;
-    background-color: #f5f5f5;
-    border-radius: 8px;
+    align-items: center;
+    height: 200px;
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
     
-    @include m.tablet {
-      height: 200px;
-      font-size: 1.25rem;
+    @include m.mobile-small {
+      height: 150px;
+      font-size: 1rem;
+    }
+    
+    @include m.tablet-up {
+      height: 250px;
+      font-size: 1.3rem;
+    }
+  }
+  
+  // Ajustes para orientação paisagem em dispositivos móveis
+  @include m.landscape {
+    @include m.mobile {
+      padding: 0;
+      margin: 0;
+      
+      .carousel-container {
+        height: 180px;
+      }
+      
+      .event-card {
+        padding: v.$spacing-xs v.$spacing-sm;
+        
+        .event-title {
+          font-size: 1.2rem;
+          margin-bottom: v.$spacing-xs;
+          
+          &::after {
+            width: 40px;
+            height: 2px;
+            bottom: -4px;
+          }
+        }
+        
+        .event-description {
+          font-size: 0.85rem;
+          line-height: 1.3;
+          margin-bottom: v.$spacing-xs;
+        }
+        
+        .event-meta {
+          gap: v.$spacing-xs;
+          
+          .event-date, .event-location {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+          }
+        }
+      }
+      
+      // Ajustes para os controles em modo paisagem
+      .control-button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        
+        &.prev {
+          left: 8px;
+        }
+        
+        &.next {
+          right: 8px;
+        }
+      }
+      
+      .carousel-controls {
+        bottom: 10px;
+        
+        .carousel-indicators {
+          padding: 3px 6px;
+          
+          .indicator {
+            width: 6px;
+            height: 6px;
+          }
+        }
+      }
     }
   }
 }

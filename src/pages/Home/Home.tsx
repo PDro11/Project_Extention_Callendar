@@ -62,16 +62,19 @@ const Home = () => {
             <Header logoSrc="/assets/images/logo-secretaria.png" />
 
             <main className="main-content">
-                {/* Seção do carrossel de eventos do mês atual */}
+                {/* Seção do mês atual com título */}
                 <section className="current-month-section">
                     <h2 className="section-title">
                         {getMonthName(currentMonth).toUpperCase()} - {monthHeadersData[currentMonth - 1]?.theme}
                     </h2>
-                    <EventCarousel 
-                        events={currentMonthEvents} 
-                        onEventClick={handleOpenModal} 
-                    />
                 </section>
+                
+                {/* Carrossel de eventos em seção separada para ocupar mais espaço */}
+                <EventCarousel 
+                    events={currentMonthEvents} 
+                    onEventClick={handleOpenModal} 
+                    monthName={getMonthName(currentMonth)}
+                />
 
                 {/* Grade de meses futuros */}
                 <section className="months-grid-section">

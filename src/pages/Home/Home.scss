@@ -11,44 +11,277 @@ $color-shadow: rgba(0, 0, 0, 0.08);
 
 // Estilos da página
 .home-page {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    background-color: $color-background;
-    padding-bottom: 4rem;
-    font-family: 'Roboto', 'Segoe UI', sans-serif;
-}
-
-.main-content {
-    flex-grow: 1; // Permite que o conteúdo principal ocupe o espaço restante
-    padding: v.$spacing-lg;
     display: flex;
     flex-direction: column;
-    gap: v.$spacing-xxl; // Espaçamento entre as seções
     background-color: v.$color-background-primary;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+    
+    .main-content {
+        flex: 1;
+        padding: v.$spacing-md;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        
+        @include m.mobile-small {
+            padding: v.$spacing-xs;
+        }
+        
+        @include m.desktop {
+            padding: v.$spacing-lg;
+        }
+        
+        // Seção do mês atual
+        .current-month-section {
+            margin-bottom: v.$spacing-xs;
+            background: linear-gradient(135deg, v.$color-card-green, darken(v.$color-card-green, 15%));
+            padding: v.$spacing-sm;
+            border-radius: 18px 18px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: v.$spacing-xs;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+            max-width: 95%; // Mesma largura do carrossel
+            margin-left: auto;
+            margin-right: auto;
+            
+            @include m.tablet-up {
+                max-width: 90%; // Mesma largura do carrossel em tablets
+            }
+            
+            @include m.desktop {
+                max-width: 85%; // Mesma largura do carrossel em desktop
+            }
+            
+            @include m.mobile-small {
+                padding: v.$spacing-xs;
+                border-radius: 14px 14px 0 0;
+                gap: v.$spacing-xs;
+            }
+            
+            @include m.tablet-up {
+                padding: v.$spacing-md;
+                gap: v.$spacing-sm;
+            }
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at top right, 
+                            rgba(255, 255, 255, 0.2) 0%, 
+                            rgba(255, 255, 255, 0) 70%);
+                z-index: 1;
+            }
+            
+            .section-title {
+                background-color: rgba(0, 0, 0, 0.15);
+                padding: v.$spacing-xs v.$spacing-md;
+                border-radius: 12px;
+                display: inline-block;
+                margin-bottom: 0;
+                font-family: v.$font-heading;
+                font-weight: 700;
+                letter-spacing: 0.8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
+                position: relative;
+                z-index: 2;
+                font-size: 1.3rem;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                max-width: 90%;
+                color: #000000; // Alterado para preto
+                
+                @include m.mobile-small {
+                    font-size: 1.1rem;
+                    padding: v.$spacing-xs v.$spacing-sm;
+                }
+                
+                @include m.tablet-up {
+                    font-size: 1.6rem;
+                    padding: v.$spacing-sm v.$spacing-lg;
+                }
+                
+                @include m.desktop {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+        
+        // Ajuste para o carrossel
+        .event-carousel {
+            margin-bottom: v.$spacing-md; // Espaço após o carrossel
+            max-width: 95%; // Reduz um pouco a largura
+            margin-left: auto;
+            margin-right: auto;
+            
+            @include m.tablet-up {
+                max-width: 90%; // Ainda mais estreito em telas maiores
+            }
+            
+            @include m.desktop {
+                max-width: 85%;
+            }
+        }
+        
+        // Seção de grade de meses
+        .months-grid-section {
+            margin-top: v.$spacing-md;
+            margin-bottom: v.$spacing-lg;
+        }
+        
+        // Grade de meses
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: v.$spacing-md;
+            
+            @include m.mobile-small {
+                grid-template-columns: 1fr;
+                gap: v.$spacing-sm;
+            }
+            
+            @include m.mobile {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            @include m.tablet {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            @include m.desktop {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: v.$spacing-lg;
+            }
+        }
+        
+        // Seção de datas anteriores
+        .previous-dates-section {
+            margin-top: v.$spacing-xl;
+            
+            .section-title {
+                font-family: v.$font-heading;
+                font-size: 1.8rem;
+                color: v.$color-text-dark;
+                margin-bottom: v.$spacing-md;
+                text-align: center;
+                
+                @include m.mobile-small {
+                    font-size: 1.4rem;
+                    margin-bottom: v.$spacing-sm;
+                }
+                
+                @include m.desktop {
+                    font-size: 2.2rem;
+                    margin-bottom: v.$spacing-lg;
+                }
+            }
+        }
+    }
 }
 
 .current-month-section {
-    background-color: v.$color-card-green; // Fundo verde grande
-    padding: v.$spacing-xl;
-    border-radius: 15px;
+    background: linear-gradient(135deg, v.$color-card-green, darken(v.$color-card-green, 15%));
+    padding: v.$spacing-sm;
+    border-radius: 18px 18px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: v.$spacing-lg;
+    gap: v.$spacing-xs;
     color: v.$color-text-light;
     text-align: center;
-    margin: 2rem 0;
+    margin: 0;
+    margin-bottom: -1px;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    
+    @include m.mobile-small {
+        padding: v.$spacing-xs;
+        border-radius: 14px 14px 0 0;
+        gap: v.$spacing-xs;
+    }
+    
+    @include m.tablet-up {
+        padding: v.$spacing-md;
+        gap: v.$spacing-sm;
+        margin: 0;
+    }
+    
+    @include m.desktop {
+        margin: 0;
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top right, 
+                    rgba(255, 255, 255, 0.2) 0%, 
+                    rgba(255, 255, 255, 0) 70%);
+        z-index: 1;
+    }
+
+    .section-title {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: v.$spacing-xs v.$spacing-md;
+        border-radius: 12px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-family: v.$font-heading;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 2;
+        font-size: 1.3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 90%;
+        
+        @include m.mobile-small {
+            font-size: 1.1rem;
+            padding: v.$spacing-xs v.$spacing-sm;
+            margin-bottom: 0;
+        }
+        
+        @include m.tablet {
+            font-size: 1.6rem;
+            padding: v.$spacing-sm v.$spacing-lg;
+            margin-bottom: 0;
+        }
+        
+        @include m.desktop {
+            font-size: 1.8rem;
+        }
+    }
 
     .month-title {
-        font-size: 3rem;
+        font-size: 2.2rem;
         font-weight: bold;
-        margin-bottom: v.$spacing-md;
-        @include m.tablet { font-size: 4rem; }
+        margin-bottom: v.$spacing-sm;
+        
+        @include m.tablet { 
+            font-size: 3rem; 
+        }
+        
+        @include m.desktop { 
+            font-size: 3.5rem; 
+        }
     }
     .event-details-container {
         display: flex;
@@ -122,20 +355,43 @@ $color-shadow: rgba(0, 0, 0, 0.08);
     }
 }
 
+.event-carousel {
+    border-radius: 0 0 18px 18px !important;
+    overflow: hidden;
+    margin-top: 0 !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+    @include m.mobile-small {
+        border-radius: 0 0 14px 14px !important;
+    }
+}
+
 .months-grid-section {
-    // Estilos para a seção que contém a grade de meses (Junho a Dezembro)
-    // Você pode adicionar um título para esta seção se desejar no futuro.
+    margin-top: v.$spacing-md;
+    
+    @include m.tablet-up {
+        margin-top: v.$spacing-lg;
+    }
 }
 
 .months-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Ajuste minmax conforme necessário
-    gap: v.$spacing-md;
-    justify-content: center; // Centraliza a grade
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: v.$spacing-sm;
+    justify-content: center;
     align-items: stretch;
 
+    @include m.mobile-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     @include m.tablet {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: v.$spacing-md;
+    }
+    
+    @include m.desktop {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: v.$spacing-lg;
     }
 }
@@ -143,16 +399,30 @@ $color-shadow: rgba(0, 0, 0, 0.08);
 .previous-dates-section {
     .section-title {
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.6rem;
         color: v.$color-heading;
         background-color: v.$color-card-yellow;
-        padding: v.$spacing-md;
-        border-radius: 10px;
-        margin-bottom: v.$spacing-lg;
-        @include m.tablet { font-size: 2.5rem; }
-    }
-    .months-grid {
-        // Reutiliza o estilo de grid
+        padding: v.$spacing-sm;
+        border-radius: 12px;
+        margin-bottom: v.$spacing-md;
+        font-weight: 700;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+        @include m.mobile-small {
+            font-size: 1.3rem;
+            padding: v.$spacing-xs;
+            margin-bottom: v.$spacing-sm;
+        }
+        
+        @include m.tablet { 
+            font-size: 1.8rem;
+            padding: v.$spacing-md;
+            margin-bottom: v.$spacing-lg;
+        }
+        
+        @include m.desktop {
+            font-size: 2rem;
+        }
     }
 }
 
@@ -205,29 +475,36 @@ $color-shadow: rgba(0, 0, 0, 0.08);
     background-color: #f5f5f5; // Cinza claro
 }
 
-// Responsividade
-@media (max-width: 992px) {
-    .main-content {
-        .months-grid-section,
-        .previous-dates-section {
-            .months-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+// Ajustes para dispositivos em orientação paisagem
+@include m.landscape {
+    @include m.mobile {
+        .main-content {
+            gap: v.$spacing-xs;
+            padding: v.$spacing-xs;
         }
-    }
-}
-
-@media (max-width: 576px) {
-    .main-content {
-        .months-grid-section,
-        .previous-dates-section {
-            .months-grid {
-                grid-template-columns: 1fr;
+        
+        .current-month-section {
+            padding: v.$spacing-xs;
+            margin: 0;
+            
+            .section-title {
+                font-size: 1.1rem;
+                padding: v.$spacing-xs v.$spacing-sm;
+                margin-bottom: 0;
             }
         }
         
-        .section-title {
-            font-size: 1.5rem;
+        .months-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: v.$spacing-xs;
+        }
+        
+        .previous-dates-section {
+            .section-title {
+                font-size: 1.2rem;
+                padding: v.$spacing-xs v.$spacing-sm;
+                margin-bottom: v.$spacing-sm;
+            }
         }
     }
 } 

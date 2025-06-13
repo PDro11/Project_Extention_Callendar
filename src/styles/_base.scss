@@ -1,22 +1,41 @@
 @use "variables" as v;
+@use "mixins" as m;
 
 // Importação das fontes do Google
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Nunito:wght@400;600;700&family=Quicksand:wght@400;500;600&family=Rubik:wght@400;500;600&family=Baloo+2:wght@400;500;600&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Sen:wght@400;500;600&display=swap');
 
+// Reset e configurações básicas
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    font-size: 16px; // Base font size
+    
+    @include m.mobile-small {
+        font-size: 14px; // Menor em dispositivos muito pequenos
+    }
+    
+    @include m.desktop-large {
+        font-size: 18px; // Maior em telas grandes
+    }
+    
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: v.$font-primary;
     background-color: v.$color-background-primary;
     color: v.$color-text-dark;
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -25,45 +44,149 @@ body {
     flex-direction: column;
 }
 
+// Tipografia responsiva
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: v.$font-heading;
     color: v.$color-heading;
     margin-bottom: v.$spacing-sm;
+    line-height: 1.2;
+}
+
+h1 {
+    @include m.responsive-font(1.8rem, 3rem);
+}
+
+h2 {
+    @include m.responsive-font(1.6rem, 2.5rem);
+}
+
+h3 {
+    @include m.responsive-font(1.3rem, 2rem);
+}
+
+h4 {
+    @include m.responsive-font(1.1rem, 1.5rem);
 }
 
 p {
     margin-bottom: v.$spacing-sm;
+    
+    @include m.mobile-small {
+        margin-bottom: v.$spacing-xs;
+    }
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: v.$transition-normal;
+    
+    &:focus {
+        outline: 2px solid rgba(v.$color-card-green, 0.5);
+        outline-offset: 2px;
+    }
+    
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+// Melhorias de acessibilidade
+button, 
+input, 
+select, 
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    
+    &:focus {
+        outline: 2px solid rgba(v.$color-card-green, 0.5);
+        outline-offset: 2px;
+    }
+    
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
 }
 
 // Classes utilitárias para fontes
 .font-nunito {
-    font-family: 'Nunito', sans-serif;
+    font-family: v.$font-accent;
 }
 
 .font-quicksand {
-    font-family: 'Quicksand', sans-serif;
+    font-family: v.$font-display;
 }
 
 .font-rubik {
-    font-family: 'Rubik', sans-serif;
+    font-family: v.$font-alternative;
 }
 
 .font-baloo {
-    font-family: 'Baloo 2', sans-serif;
+    font-family: v.$font-playful;
 }
 
 .font-rounded {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: v.$font-rounded;
 }
 
 .font-sen {
-    font-family: 'Sen', sans-serif;
+    font-family: v.$font-bold;
 }
 
 // Opcional: Para usar fontes do Google Fonts, adicione aqui o import, por exemplo:
 // @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+// Utilitários de visibilidade responsiva
+.hide-on-mobile {
+    @include m.mobile {
+        display: none !important;
+    }
+}
+
+.show-on-mobile {
+    display: none !important;
+    
+    @include m.mobile {
+        display: block !important;
+    }
+}
+
+.hide-on-tablet {
+    @include m.tablet {
+        display: none !important;
+    }
+}
+
+.show-on-tablet {
+    display: none !important;
+    
+    @include m.tablet {
+        display: block !important;
+    }
+}
+
+// Utilitários para espaçamento
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+
+// Utilitários para acessibilidade
+.visually-hidden {
+    @include m.visually-hidden;
+}
+
+// Utilitários para texto
+.truncate {
+    @include m.truncate;
+}
+
+// Ajustes para orientação paisagem em dispositivos móveis
+@include m.landscape {
+    @include m.mobile {
+        html {
+            font-size: 13px;
+        }
+    }
+}
