@@ -301,7 +301,10 @@ INSERT INTO public.month_headers (id, name, theme, "colorClass", "illustrationUr
 Para compilar o front e no back para produção:
 
 ```bash
-cd frontend
+cd backend/
+npm run build
+
+cd ../frontend/
 npm run build
 ```
 
