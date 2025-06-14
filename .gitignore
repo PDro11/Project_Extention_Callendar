@@ -3,6 +3,9 @@ node_modules/ # Ignora qualquer node_modules em qualquer nível (inclui /backend
 /.pnp # Ignora .pnp na raiz
 .pnp.js # Ignora .pnp.js na raiz
 
+# Coverage - testes
+coverage
+
 # Arquivos de Build - Geral e em subdiretórios
 dist/ # Ignora qualquer pasta dist em qualquer nível (inclui /backend/dist e /frontend/dist)
 build/ # Caso use 'build' em vez de 'dist' em algum lugar
